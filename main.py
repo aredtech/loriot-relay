@@ -8,9 +8,8 @@ WEBSOCKET_URL = "wss://me1pro.loriot.io/app?token=vgEAPAAAABBtZTFwcm8ubG9yaW90Lm
 WEBHOOK_URL = "http://host.docker.internal:8000/api/webhooks/"  # Replace with your POST endpoint URL
 
 # Custom headers
-HEADERS = {
-    "X-Loriot-For" : "nAirQua"
-}
+HEADERS = {"Example-Header": "Example-Header-Value"}
+
 
 # Function to send data to the webhook
 async def send_to_webhook(session, data):
@@ -25,6 +24,7 @@ async def send_to_webhook(session, data):
     except Exception as e:
         print(f"Error sending data to webhook: {e}")
 
+
 # Function to handle WebSocket communication
 async def websocket_handler():
     async with websockets.connect(WEBSOCKET_URL) as websocket:
@@ -35,10 +35,7 @@ async def websocket_handler():
         async with aiohttp.ClientSession() as session:
             while page <= total_pages:
                 # Send a message to request data
-                message = {
-                    "cmd": "cq",
-                    "page": page
-                }
+                message = {"cmd": "cq", "page": page}
                 await websocket.send(json.dumps(message))
                 print(f"Sent: {message}")
 
@@ -62,6 +59,7 @@ async def websocket_handler():
                 page += 1
 
         print("All pages processed.")
+
 
 # Main entry point
 if __name__ == "__main__":
