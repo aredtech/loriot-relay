@@ -4,8 +4,8 @@ import json
 import aiohttp
 
 # WebSocket and Webhook details
-WEBSOCKET_URL = "wss://me1pro.loriot.io/app?token=vgEAPAAAABBtZTFwcm8ubG9yaW90LmlvsaDEGT-LkIyknvOTQKFknA=="
-WEBHOOK_URL = "http://host.docker.internal:8000/api/webhooks/"  # Replace with your POST endpoint URL
+WEBSOCKET_URL = ""
+WEBHOOK_URL = ""  # Replace with your POST endpoint URL
 
 # Custom headers
 HEADERS = {"Example-Header": "Example-Header-Value"}
